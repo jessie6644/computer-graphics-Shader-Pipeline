@@ -27,7 +27,13 @@ void main()
 {
   /////////////////////////////////////////////////////////////////////////////
   // Replace with your code 
-  pos_fs_in = interpolate(gl_TessCoord, pos_es_in[0], pos_es_in[1], pos_es_in[2]);
+  mat4 model = model(is_moon, animation_seconds);
+  vec3 inter_vector = interpolate(gl_TessCoord, pos_es_in[0].xyz, pos_es_in[1].xyz, pos_es_in[2].xyz);
+  sphere_fs_in = normalize(inter_vector.xyz); 
+  vec4 temp = vec4(sphere_fs_in, 1.0);
+  view_pos_fs_in = view * model * temp;
+  pos_fs_in = proj * view_pos_fs_in;
+  normal_fs_in = normalize(inverse(transpose(view * model)) * temp).xyz;
   gl_Position = pos_fs_in;
   /////////////////////////////////////////////////////////////////////////////
 }

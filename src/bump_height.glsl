@@ -10,6 +10,9 @@ float bump_height( bool is_moon, vec3 s)
 {
   /////////////////////////////////////////////////////////////////////////////
   // Replace with your code 
-  return 0 ;
+  if (is_moon) 
+  	return 0.01 * smooth_heaviside(improved_perlin_noise(10 * s), 5);
+    
+  return 0.03 * smooth_heaviside(improved_perlin_noise(2.0 * s), 50);
   /////////////////////////////////////////////////////////////////////////////
 }
