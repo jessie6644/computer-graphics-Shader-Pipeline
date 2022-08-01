@@ -1,5 +1,7 @@
 # Computer Graphics – Shader Pipeline
 
+> Notice: I only contributed to *src* folder.
+
 > **To get started:** Clone this repository and all its [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) dependencies using:
 > 
 >     git clone --recursive https://github.com/alecjacobson/computer-graphics-shader-pipeline.git
